@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const db = require("./database/mysql");
-const { route } = require("./routes/story");
 const Routes = require("./routes/story");
 
 
