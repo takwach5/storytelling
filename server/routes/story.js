@@ -1,10 +1,14 @@
 const express = require ("express")
 const Routes = express.Router()
-const controlleur = require("../controllers/controllers")
+const story = require("../controllers/story")
 
 
-Routes.get("/getAll",controlleur.getAll)
-Routes.post("/add",controlleur.add)
+Routes.get("/getAll",story.getAll)
+Routes.post("/post",story.add)
+Routes.delete("/del/:id",story.del)
+Routes.put("/put/:id",story.update)
+Routes.get("/getcategory/:id",story.getcategory)
+
 
 
 module.exports= Routes
