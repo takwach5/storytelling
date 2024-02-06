@@ -2,7 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const db = require("./database/mysql");
 const { route } = require("./routes/story");
-const Routes = require("./routes/story");
+const Routes = require("./routes/story"); 
+const auth = require("./routes/users"); 
 
 
 
@@ -18,6 +19,7 @@ app.use(cors())
 // Add any additional middleware if needed
 
 app.use("/story",Routes);
+app.use("/auth",auth);
 
 
 
