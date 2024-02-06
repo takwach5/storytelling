@@ -1,10 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 const db = require("./database/mysql");
-const { route } = require("./routes/story");
-const Routes = require("./routes/story"); 
+const Routes = require("./routes/story");
+const Routes1=require("./routes/comments")
+const Routes2 =require("./routes/category")
 const auth = require("./routes/users"); 
-
 
 
 
@@ -20,7 +20,8 @@ app.use(cors())
 
 app.use("/story",Routes);
 app.use("/auth",auth);
-
+app.use("/comments",Routes1)
+app.use("/category",Routes2)
 
 
 
