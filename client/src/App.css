@@ -1,0 +1,255 @@
+.register-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.submit-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.secondary-button {
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+nav {
+  background-color: rgba(255, 204, 128, 0.5);
+  padding: 10px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+li {
+  margin-right: 15px;
+  padding: 5px 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #0e2038;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+h1 {
+  color: #333;
+}
+
+#m1{
+  font-size: 24px;
+  color: #e65100;
+}
+img {
+  width: 100%; /* Make the image responsive */
+  height: 100%;
+  /* border-radius: 8px; */
+  /* margin-top: 10px; */
+}
+
+/* Optional: Add styles for active link */
+li.active a {
+  color: #ffcc00;
+}
+
+
+/* Create.css */
+
+.create-form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.form-button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.form-button:hover {
+  background-color: #2980b9;
+}
+
+
+/* Rooms.css */
+.rooms-container {
+ 
+  display: grid;
+  grid-template-columns:33% 33% 33%;
+  gap: 16px;
+}
+
+.room-item {
+  background-color: #ffcc0075;
+  border: 1px solid #792222;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.room-name {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.room-image {
+  width: 100%;
+  height: 70%;
+  border-radius: 4px;
+}
+
+/* One.css */
+.one-container {
+  background-color: #ffcc0015;
+  text-align: center;
+  margin: 20px;
+}
+
+.room-name {
+  font-size: 24px;
+  color: #333;
+}
+
+.room-image1 {
+  width: 100%;
+  max-width: 400px;
+  height: 150%;
+  margin-top: 10px;
+}
+
+.room-type {
+  display: block;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.room-price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.delete-button {
+  background-color: #ff4c4c;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.phrases {
+  margin: 20px;
+}
+
+.phrase-table {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0.5rem;
+  line-height: 1.5;
+  flex: 1 1 auto;
+  border: 1px solid #d0d0d0;
+}
+
+.phrase-header {
+  display: none;
+  font-weight: 700;
+  font-size: 1.1em;
+  background-color: #f2f2f2;
+}
+
+.phrase-header > .phrase-data {
+  white-space: normal;
+}
+
+.phrase-row {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.phrase-row:nth-of-type(even) {
+  background-color: #f2f2f2;
+}
+
+.phrase-row:nth-of-type(odd) {
+  background-color: #ffffff;
+}
+
+.phrase-row:hover {
+  color: #C0163A;
+}
+
+.phrase-data {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 0.5em;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0px;
+  white-space: nowrap;
+  border-bottom: 1px solid #d0d0d0;
+}
