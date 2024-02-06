@@ -13,6 +13,7 @@ const getAll = ((req,res)=>{
       }
   })
 })
+// belahii e5demmmmm
 
 const getcategory = ((req,res)=>{
   db.query(`SELECT * FROM stories JOIN category ON stories.category_id = category.id WHERE stories.category_id = ${req.params.id}`,(err,result)=>{
