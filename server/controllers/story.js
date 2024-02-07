@@ -13,6 +13,19 @@ const getAll = ((req,res)=>{
       }
   })
 })
+const getonestory=((req,res)=>{
+  const sql="SELECT * FROM stories Where title=?"
+  db.query(sql,[req.params.title],(err,results)=>{
+    if(err){
+      res.send(err)
+    }
+    else{
+      res.json(results)
+    }
+
+  })
+
+})
 // belahii e5demmmmm
 
 const getcategory = ((req,res)=>{
@@ -64,4 +77,4 @@ const update =(req,res)=>{
   })
 }
 
-module.exports ={getAll,add,del,update,getcategory}
+module.exports ={getAll,add,del,update,getcategory,getonestory}
