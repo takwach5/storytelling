@@ -1,23 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home.jsx";
-import AllStories from "./components/AllStories.jsx";
+import Addstory from "./components/Addstory.jsx";
+import Storydetails from "./components/Storydetails.jsx";
 import "./App.css";
-import { useState ,useEffect} from "react";
-
-
 
 function App() {
-
-
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-
-        <Route path="/home" element={<Home/>}/>
-        <Route path="/AllStories" element={<AllStories >}/>
-
+          <Route path="/" element={<Home />} />
+          <Route path="/addstory" element={<Addstory />} /> 
+          <Route path="/details/:title" element={<Storydetails/>}/>
         </Routes>
       </BrowserRouter>
     </div>
