@@ -36,17 +36,16 @@ const register = async(req,res)=>{
 catch(err){res.status(500).send(err)}
 }
 
-const comparing = async (writtenPassword, hashedPassword) => {
-    try {
-const match = bcrypt.compare(writtenPassword,hashedPassword)
-return match
-    }
-    catch(err){res.status(500).send(err)}
-}
-
 const login = (req,res)=>{
 
-    
+    const comparing = async (writtenPassword, hashedPassword) => {
+        try {
+    const match = bcrypt.compare(writtenPassword,hashedPassword)
+    return match
+        }
+        catch(err){res.status(500).send(err)}
+    }
+
 }
 
 
