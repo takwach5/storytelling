@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home.jsx";
+import AllStories from "./components/AllStories.jsx";
 import "./App.css";
-
-
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 
 
 
@@ -16,7 +15,9 @@ function App() {
       <BrowserRouter>
         <Routes>
 
-        <Route path="/" element={<Home/>}/>
+        <Route path="/home" element={<Home/>}/>
+        <Route path="/AllStories" element={<AllStories >}/>
+
         </Routes>
       </BrowserRouter>
     </div>

@@ -36,6 +36,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `story`.`stories` (
   `id` INT NOT NULL AUTO_INCREMENT,
+   `likes` INT NOT NULL DEFAULT 0,
   `title` VARCHAR(45) NOT NULL,
   `story` LONGTEXT NOT NULL,
   `image` VARCHAR(500) NULL,
