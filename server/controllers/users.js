@@ -36,19 +36,33 @@ const register = async(req,res)=>{
 catch(err){res.status(500).send(err)}
 }
 
-const login = (req,res)=>{
-
-    const comparing = async (writtenPassword, hashedPassword) => {
-        try {
-    const match = bcrypt.compare(writtenPassword,hashedPassword)
-    return match
-        }
-        catch(err){res.status(500).send(err)}
+const login = async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const sql = 'SELECT * FROM users WHERE email = ?';
+        db.query(sql, [email], async (err, results) => {
+            if (err) {
+                return res.status(500).send(err);
+            }
+            if (results.length === 0) {
+                return res.status(404).send('User not found');
+            }
+            const user = results[0];
+            const matchhh = await bcrypt.compare(password, user.password);
+            if (matchhh) {
+                const token = jwt.sign({ id: user.id, email: user.email }, '123', { expiresIn: '1h' });
+                res.status(200).json({ token });
+            } else {
+                res.status(401).send('Invalid ');
+            }
+        });
+    } catch (err) {
+        res.status(500).send(err.message);
     }
-
-}
-
+};
 
 
 
-module.exports = {getAllusers , add , register}
+
+
+module.exports = {getAllusers , add , register , login}
