@@ -14,7 +14,7 @@ const getAll = ((req,res)=>{
   })
 })
 
-
+// heyy new schema
 
   const add =((req,res)=>{
     const sql= `insert into category set ?`
