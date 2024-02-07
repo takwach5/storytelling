@@ -63,4 +63,5 @@ const update =(req,res)=>{
     }
   })
 }
+
 module.exports ={getAll,add,del,update,getcategory}
