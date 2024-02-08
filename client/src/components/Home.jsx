@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { FaFacebook, FaInstagramSquare } from "react-icons/fa";
 import axios from 'axios';
 
+
 const Home = () => {
   const [data, setData] = useState([]);
+ 
   const [search, setSearch] = useState(""); 
   const [filteredData, setFilteredData] = useState([]); 
+  const navigate=useNavigate()
 
   useEffect(() => {
     axios.get("http://localhost:5000/story/getAll")
       .then((res) => {
         console.log("this is data",data)
+        console.log(res.data);
         setData(res.data);
         setFilteredData(res.data); 
       })
@@ -20,22 +24,31 @@ const Home = () => {
       });
   }, []);
 
+  const Like = (id) => {
+    const updatedlikes =data.map(story => {
+      if (story.id === id) {
+        return { ...story, likes:story.likes+(story.liked?-1:1), liked:!story.liked };
+      }
+      return story;
+    });
+    setData(updatedlikes);
+    setFilteredData(updatedlikes);
+  };
+
   const getone = (title) => {
-    axios.get(`http://localhost:5000/story/getone/${title}`)
-      .then((res) => {
-        console.log(res.data[0]);
-      })
-      .catch((err) => {
-        console.log(err, "errr");
-      });
+   
+    
+    navigate(`/details/${title}`)
+   
   }
+  
 
   const handleSearch = (e) => {
-    const query = e.target.value.toLowerCase();
+    const query=e.target.value.toLowerCase();
     setSearch(query); 
 
-    const filtered = data.filter((story) =>
-      story.title.toLowerCase().includes(query)
+    const filtered=data.filter((el) =>
+      el.title.toLowerCase().includes(query)
     );
     setFilteredData(filtered); 
   };
@@ -64,16 +77,22 @@ const Home = () => {
           <li>
             <Link to="/Addstory" className="add-story">Add Story</Link>
           </li>
+          <Link to="/Sign" className="Sign">sign</Link>
+          /
+          <Link to="/Log" className="Log">Log</Link>
+
         </ul>
       </nav>
 
       <div>
         {filteredData.map((e) => (
           <div key={e.id}>
-            <h2><Link to="#" className="details" onClick={() => getone(e.title)}>{e.title}</Link></h2>
+            <div className="details" onClick={() => getone(e.title)}><h2>{e.title}</h2></div>
+        
             <p>{e.story}</p>
             <img src={e.image} alt="Story Image" />
             <p>Likes: {e.likes}</p>
+            <button onClick={() => Like(e.id)}>{e.liked ? 'Unlike' : 'Like'}</button>
           </div>
         ))}
         <form action="/html/tags/html_form_tag_action.cfm" method="post">
