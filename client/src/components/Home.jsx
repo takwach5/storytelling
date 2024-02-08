@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import { FaFacebook, FaInstagramSquare } from "react-icons/fa";
 import axios from 'axios';
-
+//khalil was here
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -94,12 +94,7 @@ const Home = () => {
             <button onClick={() => Like(e.id)}>{e.liked ? 'Unlike' : 'Like'}</button>
           </div>
         ))}
-        <form action="/html/tags/html_form_tag_action.cfm" method="post">
-          <div>
-            <textarea name="comments" id="comments" style={{ fontFamily: 'sans-serif', fontSize: '1.2em' }}></textarea>
-          </div>
-          <input type="submit" value="Comment" />
-        </form>
+       
       </div>
 
       <footer className="footer"> 
