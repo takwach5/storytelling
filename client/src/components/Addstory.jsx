@@ -1,11 +1,15 @@
 import React,{useState} from "react";
 import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
+
+
 
 const Addstory=()=>{
 
     const[title,setTitle]=useState("")
     const[story,setStory]=useState("")
     const[image,setImage]=useState("")
+    const navigate = useNavigate();
     const obj={
         title:title,
         story:story,
@@ -16,7 +20,10 @@ const Addstory=()=>{
     }
     const add=()=>{
         axios.post("http://localhost:5000/story/post",obj).then((res)=>{
+
             console.log("added")
+            navigate('/home')
+            
         })
         .catch(()=>{
             console.log("error")
