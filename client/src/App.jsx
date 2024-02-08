@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home.jsx";
 import Addstory from "./components/Addstory.jsx";
 import Storydetails from "./components/Storydetails.jsx";
+import Sign from "./components/Sign.jsx";
 import "./App.css";
 import Category from "./components/Category.jsx";
 
@@ -20,6 +21,9 @@ function App() {
 
         <Route path="/home" element={<Home/>}/>
          <Route path="/Categoryy" elements ={<Category/>}/>
+          <Route path="/details/:title" element={<Storydetails/>}/>
+          <Route path="/home" element={<Home />} />
+          <Route path="/Sign" element={<Sign />} />
         </Routes>
       </BrowserRouter>
     </div>

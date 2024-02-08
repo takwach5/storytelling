@@ -36,20 +36,33 @@ const register = async(req,res)=>{
 catch(err){res.status(500).send(err)}
 }
 
-const comparing = async (writtenPassword, hashedPassword) => {
+const login = async (req, res) => {
+    const { email, password } = req.body;
     try {
-const match = bcrypt.compare(writtenPassword,hashedPassword)
-return match
+        const sql = 'SELECT * FROM users WHERE email = ?';
+        db.query(sql, [email], async (err, results) => {
+            if (err) {
+                return res.status(500).send(err);
+            }
+            if (results.length === 0) {
+                return res.status(404).send('User not found');
+            }
+            const user = results[0];
+            const matchh = await bcrypt.compare(password, user.password);
+            if (matchh) {
+                const token = jwt.sign({ id: user.id, email: user.email }, '123');
+                res.status(200).json({ token , user  });
+            } else {
+                res.status(401).send('Invalid ');
+            }
+        });
+    } catch (err) {
+        res.status(500).send(err.message);
     }
-    catch(err){res.status(500).send(err)}
-}
-
-const login = (req,res)=>{
-
-    
-}
+};
 
 
 
 
-module.exports = {getAllusers , add , register}
+
+module.exports = {getAllusers , add , register , login}
