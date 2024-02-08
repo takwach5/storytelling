@@ -48,8 +48,8 @@ const login = async (req, res) => {
                 return res.status(404).send('User not found');
             }
             const user = results[0];
-            const matchhh = await bcrypt.compare(password, user.password);
-            if (matchhh) {
+            const matchh = await bcrypt.compare(password, user.password);
+            if (matchh) {
                 const token = jwt.sign({ id: user.id, email: user.email }, '123', { expiresIn: '1h' });
                 res.status(200).json({ token });
             } else {
