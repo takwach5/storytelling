@@ -11,6 +11,7 @@ const Home = () => {
   useEffect(() => {
     axios.get("http://localhost:5000/story/getAll")
       .then((res) => {
+        console.log("this is data",data)
         setData(res.data);
         setFilteredData(res.data); 
       })
