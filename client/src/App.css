@@ -96,3 +96,54 @@ body {
 .sbutton {
   color: white;
 }
+
+.signn {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 6rem;
+  left:42rem
+}
+
+.titleee {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input{
+  margin-bottom: 15px;
+}
+
+.input input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.imageee img {
+  display: block;
+  margin-top: 10px;
+  max-width: 100%;
+}
+
+.Butt {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}

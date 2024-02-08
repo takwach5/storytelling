@@ -16,11 +16,11 @@ function Log() {
 
 
   return (
-    <div>
-        <h1>Log in</h1>
-        <div className='Loginput' >enter your email :<input type="text"onChange={(e)=>{setEmail(e.target.value)}}  /></div>
-        <div className='Loginput' >enter your password :<input type="text"onChange={(e)=>{setPassword(e.target.value)}} /></div>
-        <button className='LogButt' onClick={()=>{loged()}} >login</button>
+    <div className='signn' >
+        <h1 >Log in</h1>
+        <div className='signinput' >enter your email :<input type="text"onChange={(e)=>{setEmail(e.target.value)}}  /></div>
+        <div className='signinput' >enter your password :<input type="text"onChange={(e)=>{setPassword(e.target.value)}} /></div>
+        <button className='signButt' onClick={()=>{loged()}} >login</button>
     </div>
   )
 }
