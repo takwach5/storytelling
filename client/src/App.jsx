@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home.jsx";
-import AllStories from "./components/AllStories.jsx";
+import Addstory from "./components/Addstory.jsx";
+import Storydetails from "./components/Storydetails.jsx";
 import Sign from "./components/Sign.jsx";
 import "./App.css";
 
@@ -10,8 +11,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/addstory" element={<Addstory />} /> 
+          <Route path="/details/:title" element={<Storydetails/>}/>
           <Route path="/home" element={<Home />} />
-          <Route path="/AllStories" element={<AllStories />} />
           <Route path="/Sign" element={<Sign />} />
         </Routes>
       </BrowserRouter>

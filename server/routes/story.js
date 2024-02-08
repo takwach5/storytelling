@@ -4,6 +4,7 @@ const story = require("../controllers/story")
 
 
 Routes.get("/getAll",story.getAll)
+Routes.get("/getone/:title",story.getonestory)
 Routes.post("/post",story.add)
 Routes.delete("/del/:id",story.del)
 Routes.put("/put/:id",story.update)

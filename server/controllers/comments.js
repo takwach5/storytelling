@@ -3,7 +3,7 @@ const db = require ("../database/mysql")
 
 
 const getAll = ((req,res)=>{
-  db.query("SELECT * FROM category",(err,result)=>{
+  db.query("SELECT * FROM comments",(err,result)=>{
 
       if(err){
         res.send(err)
@@ -17,7 +17,7 @@ const getAll = ((req,res)=>{
 
 
   const add =((req,res)=>{
-    const sql= `insert into category set ?`
+    const sql= `insert into comments set ?`
     db.query(sql,req.body,(err,result)=>{
       if(err){
         res.send(err)
@@ -29,7 +29,7 @@ const getAll = ((req,res)=>{
 })
 
 const del = (req,res)=>{
-  const sql = `delete from category where id=${req.params.id}`
+  const sql = `delete from comments where id=${req.params.id}`
   db.query(sql,(err,result)=>{
     if(err){
       res.send(err)
@@ -40,7 +40,7 @@ const del = (req,res)=>{
   })
 }
 const update =(req,res)=>{
-  const sql = `update category set ? where id=${req.params.id}`
+  const sql = `update comments set ? where id=${req.params.id}`
   db.query(sql,req.body,(err,result)=>{
     if(err){
       res.send(err)
