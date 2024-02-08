@@ -23,9 +23,6 @@ const Addstory=()=>{
         })
     }
 
-
-
-
     return(
         <div>
                <div>

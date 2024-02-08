@@ -11,6 +11,7 @@ const Home = () => {
   useEffect(() => {
     axios.get("http://localhost:5000/story/getAll")
       .then((res) => {
+        console.log(res.data);
         setData(res.data);
         setFilteredData(res.data); 
       })
@@ -63,6 +64,10 @@ const Home = () => {
           <li>
             <Link to="/Addstory" className="add-story">Add Story</Link>
           </li>
+          <Link to="/Sign" className="Sign">sign</Link>
+          /
+          <Link to="/Log" className="Log">Log</Link>
+
         </ul>
       </nav>
 
