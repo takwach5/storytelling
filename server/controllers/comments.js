@@ -40,7 +40,7 @@ const del = (req,res)=>{
   })
 }
 const update =(req,res)=>{
-  const sql = `update category set ? where id=${req.params.id}`
+  const sql = `update comments set ? where id=${req.params.id}`
   db.query(sql,req.body,(err,result)=>{
     if(err){
       res.send(err)
