@@ -1,6 +1,6 @@
 import React from 'react'
 
-function auth() {
+function Sign() {
   return (
     <div>
         <h1>Sign in</h1>
@@ -12,4 +12,4 @@ function auth() {
   )
 }
 
-export default auth
+export default Sign

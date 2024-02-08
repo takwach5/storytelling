@@ -50,8 +50,8 @@ const login = async (req, res) => {
             const user = results[0];
             const matchh = await bcrypt.compare(password, user.password);
             if (matchh) {
-                const token = jwt.sign({ id: user.id, email: user.email }, '123', { expiresIn: '1h' });
-                res.status(200).json({ token });
+                const token = jwt.sign({ id: user.id, email: user.email }, '123');
+                res.status(200).json({ token , user  });
             } else {
                 res.status(401).send('Invalid ');
             }
