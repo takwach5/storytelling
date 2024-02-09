@@ -2,8 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import { FaFacebook, FaInstagramSquare } from "react-icons/fa";
 import axios from 'axios';
+
 import Cookies from "js-cookie"
 
+
+
+//khalil was here
 
 
 const Home = ({id}) => {
@@ -35,16 +39,7 @@ const Home = ({id}) => {
     .catch((err)=>{console.log(err)})
   },[])
 
-  const Like = (id) => {
-    const updatedlikes =data.map(story => {
-      if (story.id === id) {
-        return { ...story, likes:story.likes+(story.liked?-1:1), liked:!story.liked };
-      }
-      return story;
-    });
-    setData(updatedlikes);
-    
-  };
+ 
 
   const getone = (title) => {
    
@@ -119,7 +114,7 @@ el.category_id==select
             
             <img src={e.image} alt="Story Image" />
             <p>Likes: {e.likes}</p>
-            <button onClick={() => Like(e.id)}>{e.liked?'Unlike':'Like'}</button>
+           <button>like</button>
           </div>
         ))}
        
