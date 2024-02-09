@@ -41,6 +41,9 @@ const Home = () => {
     navigate(`/details/${title}`)
    
   }
+  const getcategory=()=>{
+    
+  }
   
 
   const handleSearch = (e) => {
