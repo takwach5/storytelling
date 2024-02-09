@@ -21,7 +21,9 @@ const Storydetails=()=>{
     },[title])
     const[newcomment,setNewcomment]=useState("")
     const com={
-     describe:newcomment
+     describe:newcomment,
+     users_id:1,
+     stories_id:1
     }
     const showcomments=()=>{
       axios.get("http://localhost:5000/comments/getAll").then((res)=>{
@@ -50,7 +52,7 @@ showcomments()
             <div className="storydetails"><h2>{One.story}</h2></div>
             <div className="imgdetails"><img src={One.image} alt="" /></div>
 
-            <form action="/html/tags/html_form_tag_action.cfm" method="post">
+            <form >
           <div>
             <textarea onChange={((e)=>{setNewcomment(e.target.value)})} name="comments" id="comments" style={{ fontFamily: 'sans-serif', fontSize: '1.2em' }}></textarea>
           </div>
@@ -58,7 +60,7 @@ showcomments()
         </form>
         <div>
           {commentaire.map((el)=>(
-            <div>{el.describe}</div>
+            <div><input type="text" value={el.describe}/></div>
           ))}
         </div>
 

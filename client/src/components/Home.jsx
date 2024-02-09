@@ -92,10 +92,10 @@ const Home = () => {
           <div key={e.id}>
             <div className="details" onClick={() => getone(e.title)}><h2>{e.title}</h2></div>
         
-            <p>{e.story}</p>
+            
             <img src={e.image} alt="Story Image" />
             <p>Likes: {e.likes}</p>
-            <button onClick={() => Like(e.id)}>{e.liked ? 'Unlike' : 'Like'}</button>
+            <button onClick={() => Like(e.id)}>{e.liked?'Unlike':'Like'}</button>
           </div>
         ))}
        

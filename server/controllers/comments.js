@@ -13,6 +13,18 @@ const getAll = ((req,res)=>{
       }
   })
 })
+const getone = ((req,res)=>{
+  db.query("SELECT * FROM comments WHERE stories_id=?",[req.params.stories_id] ,(err,result)=>{
+
+      if(err){
+        res.send(err)
+      }
+      else{
+        res.json(result)
+      }
+  })
+})
+
 
 
 
@@ -50,4 +62,4 @@ const update =(req,res)=>{
     }
   })
 }
-module.exports ={getAll,add,del,update}
+module.exports ={getAll,add,del,update,getone}
