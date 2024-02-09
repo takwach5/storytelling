@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import { FaFacebook, FaInstagramSquare } from "react-icons/fa";
 import axios from 'axios';
+<<<<<<< HEAD
 import Cookies from "js-cookie"
 
 
+=======
+//khalil was here
+>>>>>>> f01f457fe460d1f1f7627e2478587cdcd69f8168
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -97,18 +101,13 @@ const Home = () => {
           <div key={e.id}>
             <div className="details" onClick={() => getone(e.title)}><h2>{e.title}</h2></div>
         
-            <p>{e.story}</p>
+            
             <img src={e.image} alt="Story Image" />
             <p>Likes: {e.likes}</p>
-            <button onClick={() => Like(e.id)}>{e.liked ? 'Unlike' : 'Like'}</button>
+            <button onClick={() => Like(e.id)}>{e.liked?'Unlike':'Like'}</button>
           </div>
         ))}
-        <form action="/html/tags/html_form_tag_action.cfm" method="post">
-          <div>
-            <textarea name="comments" id="comments" style={{ fontFamily: 'sans-serif', fontSize: '1.2em' }}></textarea>
-          </div>
-          <input type="submit" value="Comment" />
-        </form>
+       
       </div>
 
       <footer className="footer"> 
