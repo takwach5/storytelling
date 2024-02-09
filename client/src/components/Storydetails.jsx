@@ -40,7 +40,7 @@ const Storydetails=()=>{
       axios.post("http://localhost:5000/comments/post",com).then((res)=>{
         console.log("new comment has ben posted");
         setNewcomment("")
-showcomments()
+        showcomments()
       })
       .catch((err) => {
         console.log(err, "errr");

@@ -97,7 +97,6 @@ body {
   color: white;
 }
 
-<<<<<<< HEAD
  .t,.s,.im {
   display: flex;
   flex-direction: column;
@@ -159,7 +158,6 @@ body {
   transition: 100ms;
 }
 
-=======
 .signn {
   max-width: 400px;
   margin: 0 auto;
@@ -210,4 +208,81 @@ body {
   cursor: pointer;
   outline: none;
 }
->>>>>>> 36156f0dc0c9c934fda6681c2486f122dbfa1642
+
+.input-container {
+  position: relative;
+  margin: 50px auto;
+  width: 200px;
+}
+
+.input-container input[type='text'],
+.input-container input[type='password'] {
+  font-size: 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+}
+
+.input-container .label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ccc;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.input-container input[type='text']:focus ~ .label,
+.input-container input[type='password']:focus ~ .label,
+.input-container input[type='text']:valid ~ .label,
+.input-container input[type='password']:valid ~ .label {
+  top: -20px;
+  font-size: 16px;
+  color: #333;
+}
+
+.input-container .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #333;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+.input-container input[type='text']:focus ~ .underline,
+.input-container input[type='password']:focus ~ .underline,
+.input-container input[type='text']:valid ~ .underline,
+.input-container input[type='password']:valid ~ .underline {
+  transform: scaleX(1);
+}
+
+/* Updated CSS */
+.connn {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.okk {
+  background-color: #574caf;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.okk:hover {
+  background-color: #574caf;
+}
+
