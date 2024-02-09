@@ -2,7 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import { FaFacebook, FaInstagramSquare } from "react-icons/fa";
 import axios from 'axios';
+<<<<<<< HEAD
+import Cookies from "js-cookie"
+
+
+=======
 //khalil was here
+>>>>>>> f01f457fe460d1f1f7627e2478587cdcd69f8168
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -36,9 +42,13 @@ const Home = () => {
 
   const getone = (title) => {
    
-    
     navigate(`/details/${title}`)
    
+  }
+  const handleOUT=()=>{
+     Cookies.remove('id')
+     Cookies.remove('token')
+
   }
   
 
@@ -79,6 +89,9 @@ const Home = () => {
           <Link to="/Sign" className="Sign">sign</Link>
           /
           <Link to="/Log" className="Log">Log</Link>
+          /
+          <Link onClick={()=>{handleOUT() }} to ='/Log'  className="Log">Logout</Link>
+
 
         </ul>
       </nav>
