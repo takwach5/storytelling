@@ -7,11 +7,18 @@ import Sign from "./components/Sign.jsx";
 import Log from "./components/Log.jsx";
 import "./App.css";
 import Category from "./components/Category.jsx";
+import Cookies from "js-cookie";
 
 
 
 function App() {
+const id=Cookies.get("id")
 
+  useEffect(()=>{
+
+  },[])
+
+console.log("this is id",id)
   return (
     <div className="App">
       <BrowserRouter>
@@ -20,7 +27,7 @@ function App() {
           <Route path="/addstory" element={<Addstory />} /> 
           <Route path="/details/:title" element={<Storydetails />}/>
 
-        <Route path="/home" element={<Home />}/>
+        <Route path="/home" element={<Home id={id}/>}/>
          <Route path="/Categoryy" elements ={<Category/>}/>
           <Route path="/details/:title" element={<Storydetails/>}/>
           <Route path="/home" element={<Home />} />

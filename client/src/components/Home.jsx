@@ -6,11 +6,13 @@ import Cookies from "js-cookie"
 
 
 
-const Home = () => {
+const Home = ({id}) => {
   const [data, setData] = useState([]);
+  const[category,setCategory]=useState([])
  
   const [search, setSearch] = useState(""); 
-  const [filteredData, setFilteredData] = useState([]); 
+  
+  const[select,setSelect]=useState("all")
   const navigate=useNavigate()
 
   useEffect(() => {
@@ -18,13 +20,20 @@ const Home = () => {
       .then((res) => {
         console.log("this is data",data)
         console.log(res.data);
-        setData(res.data);
-        setFilteredData(res.data); 
+        setData(res.data); 
       })
       .catch((err) => {
         console.log(err, "errr");
       });
   }, []);
+
+  useEffect(()=>{
+    axios.get(`http://localhost:5000/category/getAll`).then((res)=>{
+      setCategory(res.data)
+      console.log("this is category",res.data)
+    })
+    .catch((err)=>{console.log(err)})
+  },[])
 
   const Like = (id) => {
     const updatedlikes =data.map(story => {
@@ -34,7 +43,7 @@ const Home = () => {
       return story;
     });
     setData(updatedlikes);
-    setFilteredData(updatedlikes);
+    
   };
 
   const getone = (title) => {
@@ -48,9 +57,7 @@ const Home = () => {
 
    
   }
-  const getcategory=()=>{
-    
-  }
+
   
 
   const handleSearch = (e) => {
@@ -60,8 +67,14 @@ const Home = () => {
     const filtered=data.filter((el) =>
       el.title.toLowerCase().includes(query)
     );
-    setFilteredData(filtered); 
+    setData(filtered); 
   };
+  const handelSelect=()=>{
+const filtered= data.filter((el)=>{
+el.category_id==select
+
+})
+  }
 
   return (
     <div>
@@ -75,13 +88,14 @@ const Home = () => {
             <button className='sbutton'>Search</button>
           </li>
           <li className="category-bar">
-            <select>
+          {/* onSelect={(e)=>{console.log(e.target.value,"event")}} */}
+        
+            <select defaultValue="all" onChange={(e)=>{setSelect(e.target.value);
+            handelSelect()}}>
               <option value="all">All Categories</option>
-              <option value="category1">Drama</option>
-              <option value="category2">Horror</option>
-              <option value="category3">Romance</option>
-              <option value="category4">Adventure</option>
-              <option value="category5">Thriller</option>
+          {category.map((el,i)=>(
+            <option value={el.id} key={i}>{el.name}</option>
+          ))}
             </select>
           </li>
           <li>
@@ -98,7 +112,7 @@ const Home = () => {
       </nav>
 
       <div>
-        {filteredData.map((e) => (
+        {data.map((e) => (
           <div key={e.id}>
             <div className="details" onClick={() => getone(e.title)}><h2>{e.title}</h2></div>
         
