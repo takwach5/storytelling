@@ -33,20 +33,21 @@ const Addstory=()=>{
     return(
         <div>
                <div>
-  <label htmlFor="newTitle">New Title:</label>
-  <input onChange={((e)=>{setTitle(e.target.value)})} type="text" id="newTitle" />
+  <label htmlFor="newTitle"> Title:</label>
+  <input className="t" onChange={((e)=>{setTitle(e.target.value)})} type="text" id="newTitle" />
 </div>
 <div>
-  <label htmlFor="newStory">New Story:</label>
-  <textarea onChange={((e)=>{setStory(e.target.value)})} id="newStory" />
+  <label htmlFor="newStory"> Story:</label>
+  <textarea className="s" onChange={((e)=>{setStory(e.target.value)})} id="newStory" />
 </div>
 <div>
-  <label htmlFor="newImageUrl">New Image URL:</label>
-  <input onChange={((e)=>{setImage(e.target.value)})} type="text" id="newImageUrl" placeholder="optional" />
+  <label htmlFor="newImageUrl"> Image </label>
+  <input  className="im" onChange={((e)=>{setImage(e.target.value)})} type="text" id="newImageUrl" placeholder="optional" />
 </div>
-<div onClick={()=>{add()}}>
-    <button>post now</button>
+<div className="okk" onClick={()=>{add()}}>
+   post now
 </div>
+
         </div>
         
     )
