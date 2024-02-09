@@ -1,18 +1,31 @@
-import React ,{useState}   from 'react'
+import React ,{ useEffect, useState}   from 'react'
 import axios from 'axios'
+// eslint-disable-next-line no-unused-vars
+import Cookies from "js-cookie"
+import { useNavigate } from 'react-router-dom'
+
 
 function Log() {
 
     const[email,setEmail] = useState('')
     const[password,setPassword] = useState('')
+    const navigate = useNavigate()
+
+
+
+
+
+
 
 
     const loged =()=>{
-        axios.get(`http://localhost:5000/auth/login`,{email:email,password:password})
-        .then(() => {  console.log("welcome"); })
-        .catch((err) => { console.log(err); });
-     }
-
+      axios.post(`http://localhost:5000/auth/login`,{email:email,password:password})
+      .then((result) => {   Cookies.set("token",result.data.token)    
+                            Cookies.set('id',result.data.user.id)
+                             navigate('/') 
+    })
+      .catch((err) => { console.log(err); });
+   }
 
 
   return (

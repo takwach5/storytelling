@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import { FaFacebook, FaInstagramSquare } from "react-icons/fa";
 import axios from 'axios';
+import Cookies from "js-cookie"
+
 
 
 const Home = () => {
@@ -36,9 +38,13 @@ const Home = () => {
 
   const getone = (title) => {
    
-    
     navigate(`/details/${title}`)
    
+  }
+  const handleOUT=()=>{
+     Cookies.remove('id')
+     Cookies.remove('token')
+
   }
   
 
@@ -79,6 +85,9 @@ const Home = () => {
           <Link to="/Sign" className="Sign">sign</Link>
           /
           <Link to="/Log" className="Log">Log</Link>
+          /
+          <Link onClick={()=>{handleOUT() }} to ='/Log'  className="Log">Logout</Link>
+
 
         </ul>
       </nav>
