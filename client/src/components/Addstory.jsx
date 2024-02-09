@@ -9,13 +9,14 @@ const Addstory=()=>{
     const[title,setTitle]=useState("")
     const[story,setStory]=useState("")
     const[image,setImage]=useState("")
+  
     const navigate = useNavigate();
     const obj={
         title:title,
         story:story,
         image:image,
         users_id:1,
-        category_id:1
+        category_id:2
         
     }
     const add=()=>{
@@ -42,7 +43,7 @@ const Addstory=()=>{
 </div>
 <div>
   <label htmlFor="newImageUrl"> Image </label>
-  <input  className="im" onChange={((e)=>{setImage(e.target.value)})} type="text" id="newImageUrl" placeholder="optional" />
+  <input  className="im" onChange={((e)=>{setImage(e.target.value)})}  id="newImageUrl" placeholder="optional" />
 </div>
 <div className="okk" onClick={()=>{add()}}>
    post now

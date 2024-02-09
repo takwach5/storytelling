@@ -41,18 +41,18 @@ const getcategory = ((req,res)=>{
 })
 
 
-
-  const add =((req,res)=>{
-    const sql= `insert into stories set ?`
-    db.query(sql,req.body,(err,result)=>{
-      if(err){
-        res.send(err)
-      }
-      else{
-        res.json(result)
-      }
-    })
+const add =((req,res)=>{
+  const sql= `insert into stories set ?`
+  db.query(sql,req.body,(err,result)=>{
+    if(err){
+      res.send(err)
+    }
+    else{
+      res.json(result)
+    }
+  })
 })
+
 
 const del = (req,res)=>{
   const sql = `delete from stories where id=${req.params.id}`
