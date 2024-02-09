@@ -2,13 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import { FaFacebook, FaInstagramSquare } from "react-icons/fa";
 import axios from 'axios';
-<<<<<<< HEAD
 import Cookies from "js-cookie"
 
 
-=======
-//khalil was here
->>>>>>> f01f457fe460d1f1f7627e2478587cdcd69f8168
 
 const Home = () => {
   const [data, setData] = useState([]);
