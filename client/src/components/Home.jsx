@@ -13,10 +13,10 @@ import Cookies from "js-cookie"
 const Home = ({id}) => {
   const [data, setData] = useState([]);
   const[category,setCategory]=useState([])
- 
+
   const [search, setSearch] = useState(""); 
-  
-  const[select,setSelect]=useState("all")
+  const [filter,setFilter]=useState([])
+  const[select,setSelect]=useState([])
   const navigate=useNavigate()
 
   useEffect(() => {
@@ -50,10 +50,9 @@ const Home = ({id}) => {
      Cookies.remove('id')
      Cookies.remove('token')
 
-   
+  
   }
 
-  
 
   const handleSearch = (e) => {
     const query=e.target.value.toLowerCase();
@@ -61,14 +60,24 @@ const Home = ({id}) => {
 
     const filtered=data.filter((el) =>
       el.title.toLowerCase().includes(query)
-    );
-    setData(filtered); 
-  };
-  const handelSelect=()=>{
-const filtered= data.filter((el)=>{
-el.category_id==select
+    ); 
+    setFilter(filtered)
+  }
 
+  const handelSelect=(e)=>{
+    if(e==="all"){
+  setSelect([])
+      return
+    }
+const filtered= data.filter((el)=>{
+  return(el.category_id==e)
+  
 })
+if(!filtered.length){
+  filtered.push(1)
+}
+console.log(e,"filtered");
+setSelect(filtered)
   }
 
   return (
@@ -85,8 +94,8 @@ el.category_id==select
           <li className="category-bar">
           {/* onSelect={(e)=>{console.log(e.target.value,"event")}} */}
         
-            <select defaultValue="all" onChange={(e)=>{setSelect(e.target.value);
-            handelSelect()}}>
+            <select  onChange={(e)=>{
+            handelSelect(e.target.value)}}>
               <option value="all">All Categories</option>
           {category.map((el,i)=>(
             <option value={el.id} key={i}>{el.name}</option>
@@ -107,7 +116,32 @@ el.category_id==select
       </nav>
 
       <div>
-        {data.map((e) => (
+        {select.length?select[0]===1?[].map((e) => (
+          <div key={e.id}>
+            <div className="details" onClick={() => getone(e.title)}><h2>{e.title}</h2></div>
+        
+            
+            <img src={e.image} alt="Story Image" />
+            <p>Likes: {e.likes}</p>
+           <button>like</button>
+          </div>
+        )):select.map((e) => (
+          <div key={e.id}>
+            <div className="details" onClick={() => getone(e.title)}><h2>{e.title}</h2></div>
+        
+            
+            <img src={e.image} alt="Story Image" />
+            <p>Likes: {e.likes}</p>
+           <button>like</button>
+          </div>
+        )):filter.length?filter.map((e) => (
+          <div key={e.id}>
+            <div className="details" onClick={() => getone(e.title)}><h2>{e.title}</h2></div>
+            <img src={e.image} alt="Story Image" />
+            <p>Likes: {e.likes}</p>
+           <button>like</button>
+          </div>
+        )):data.map((e) => (
           <div key={e.id}>
             <div className="details" onClick={() => getone(e.title)}><h2>{e.title}</h2></div>
         

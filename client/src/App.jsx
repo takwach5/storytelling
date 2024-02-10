@@ -23,8 +23,8 @@ console.log("this is id",id)
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/addstory" element={<Addstory />} /> 
+
+          <Route path="/addstory" element={<Addstory id={id}/>} /> 
           <Route path="/details/:title" element={<Storydetails />}/>
 
         <Route path="/home" element={<Home id={id}/>}/>
