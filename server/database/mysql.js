@@ -4,7 +4,7 @@ const mysql =require("mysql2")
 const connection =mysql.createConnection({
     host:'localhost',
     user:'root',
-    password:'azerty12345AZ',
+    password:'857595A!',
     database:'story'
 })
 

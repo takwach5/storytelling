@@ -2,40 +2,46 @@ import React, { useEffect, useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 import { FaFacebook, FaInstagramSquare } from "react-icons/fa";
 import axios from 'axios';
+
 import Cookies from "js-cookie"
 
 
 //khalil was here
 
-const Home = () => {
+
+//khalil was here
+
+
+const Home = ({id}) => {
   const [data, setData] = useState([]);
- 
+  const[category,setCategory]=useState([])
+
   const [search, setSearch] = useState(""); 
-  const [filteredData, setFilteredData] = useState([]); 
+  const [filter,setFilter]=useState([])
+  const[select,setSelect]=useState([])
   const navigate=useNavigate()
 
   useEffect(() => {
     axios.get("http://localhost:5000/story/getAll")
       .then((res) => {
+        console.log("this is data",data)
         console.log(res.data);
-        setData(res.data);
-        setFilteredData(res.data); 
+        setData(res.data); 
       })
       .catch((err) => {
         console.log(err, "errr");
       });
   }, []);
 
-  const Like = (id) => {
-    const updatedlikes =data.map(story => {
-      if (story.id === id) {
-        return { ...story, likes:story.likes+(story.liked?-1:1), liked:!story.liked };
-      }
-      return story;
-    });
-    setData(updatedlikes);
-    setFilteredData(updatedlikes);
-  };
+  useEffect(()=>{
+    axios.get(`http://localhost:5000/category/getAll`).then((res)=>{
+      setCategory(res.data)
+      console.log("this is category",res.data)
+    })
+    .catch((err)=>{console.log(err)})
+  },[])
+
+ 
 
   const getone = (title) => {
    
@@ -46,8 +52,9 @@ const Home = () => {
      Cookies.remove('id')
      Cookies.remove('token')
 
-  }
   
+  }
+
 
   const handleSearch = (e) => {
     const query=e.target.value.toLowerCase();
@@ -55,9 +62,25 @@ const Home = () => {
 
     const filtered=data.filter((el) =>
       el.title.toLowerCase().includes(query)
-    );
-    setFilteredData(filtered); 
-  };
+    ); 
+    setFilter(filtered)
+  }
+
+  const handelSelect=(e)=>{
+    if(e==="all"){
+  setSelect([])
+      return
+    }
+const filtered= data.filter((el)=>{
+  return(el.category_id==e)
+  
+})
+if(!filtered.length){
+  filtered.push(1)
+}
+console.log(e,"filtered");
+setSelect(filtered)
+  }
 
   return (
     <div>
@@ -71,13 +94,14 @@ const Home = () => {
             <button className='sbutton'>Search</button>
           </li>
           <li className="category-bar">
-            <select>
+          {/* onSelect={(e)=>{console.log(e.target.value,"event")}} */}
+        
+            <select  onChange={(e)=>{
+            handelSelect(e.target.value)}}>
               <option value="all">All Categories</option>
-              <option value="category1">Drama</option>
-              <option value="category2">Horror</option>
-              <option value="category3">Romance</option>
-              <option value="category4">Adventure</option>
-              <option value="category5">Thriller</option>
+          {category.map((el,i)=>(
+            <option value={el.id} key={i}>{el.name}</option>
+          ))}
             </select>
           </li>
           <li>
@@ -94,14 +118,39 @@ const Home = () => {
       </nav>
 
       <div>
-        {filteredData.map((e) => (
+        {select.length?select[0]===1?[].map((e) => (
           <div key={e.id}>
             <div className="details" onClick={() => getone(e.title)}><h2>{e.title}</h2></div>
         
             
             <img src={e.image} alt="Story Image" />
             <p>Likes: {e.likes}</p>
-            <button onClick={() => Like(e.id)}>{e.liked?'Unlike':'Like'}</button>
+           <button>like</button>
+          </div>
+        )):select.map((e) => (
+          <div key={e.id}>
+            <div className="details" onClick={() => getone(e.title)}><h2>{e.title}</h2></div>
+        
+            
+            <img src={e.image} alt="Story Image" />
+            <p>Likes: {e.likes}</p>
+           <button>like</button>
+          </div>
+        )):filter.length?filter.map((e) => (
+          <div key={e.id}>
+            <div className="details" onClick={() => getone(e.title)}><h2>{e.title}</h2></div>
+            <img src={e.image} alt="Story Image" />
+            <p>Likes: {e.likes}</p>
+           <button>like</button>
+          </div>
+        )):data.map((e) => (
+          <div key={e.id}>
+            <div className="details" onClick={() => getone(e.title)}><h2>{e.title}</h2></div>
+        
+            
+            <img src={e.image} alt="Story Image" />
+            <p>Likes: {e.likes}</p>
+           <button>like</button>
           </div>
         ))}
        
