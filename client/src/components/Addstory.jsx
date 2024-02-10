@@ -4,7 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 
 
-const Addstory=()=>{
+const Addstory=({id})=>{
 
     const[title,setTitle]=useState("")
     const[story,setStory]=useState("")
@@ -15,7 +15,7 @@ const Addstory=()=>{
         title:title,
         story:story,
         image:image,
-        users_id:1,
+        users_id:id,
         category_id:2
         
     }

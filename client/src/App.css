@@ -96,9 +96,7 @@ body {
 .sbutton {
   color: white;
 }
-
-
- .t,.s,.im {
+.t,.s,.im {
   display: flex;
   flex-direction: column;
   width: fit-content;
@@ -210,64 +208,4 @@ body {
   cursor: pointer;
   outline: none;
 }
-.dropdown {
-  position: relative;
-  display: inline-block;
-  margin-left: 5px;
-}
 
-.dots {
-  cursor: pointer;
-  font-size: 20px;
-  color: #666;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 80px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-  z-index: 1;
-  border-radius: 5px;
-}
-
-.dropdown-content a {
-  color: #333;
-  padding: 8px 12px;
-  display: block;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.comment {
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
-}
-
-.comment input[type="text"] {
-  border: none;
-  outline: none;
-  background-color: transparent;
-  width: 100%;
-}
-
-.comment input[type="text"]:focus {
-  border-bottom: 2px solid #666;
-}
-input.storydetails {
-  width:50%; 
-  height:200px;
-  resize:vertical; 
-  overflow-y: scroll; 
-}
