@@ -6,6 +6,8 @@ import axios from 'axios';
 import Cookies from "js-cookie"
 
 
+//khalil was here
+
 
 //khalil was here
 
@@ -92,7 +94,6 @@ setSelect(filtered)
             <button className='sbutton'>Search</button>
           </li>
           <li className="category-bar">
-          {/* onSelect={(e)=>{console.log(e.target.value,"event")}} */}
         
             <select  onChange={(e)=>{
             handelSelect(e.target.value)}}>
@@ -142,7 +143,7 @@ setSelect(filtered)
            <button>like</button>
           </div>
         )):data.map((e) => (
-          <div key={e.id}>
+          <div className='conn' key={e.id}>
             <div className="details" onClick={() => getone(e.title)}><h2>{e.title}</h2></div>
         
             
