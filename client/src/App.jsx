@@ -25,7 +25,7 @@ console.log("this is id",id)
         <Routes>
 
           <Route path="/addstory" element={<Addstory id={id}/>} /> 
-          <Route path="/details/:title" element={<Storydetails />}/>
+          <Route path="/details/:title" element={<Storydetails id={id}/>  }/>
 
         <Route path="/home" element={<Home id={id}/>}/>
          <Route path="/Categoryy" elements ={<Category/>}/>

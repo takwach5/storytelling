@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from "axios";
+import { FaFacebook, FaInstagramSquare } from "react-icons/fa";
+import Cookies from "js-cookie";
 
-const Storydetails = () => {
+const Storydetails = ({ id }) => {
     const [commentaire, setCommentaire] = useState([]);
     const [One, setOne] = useState({});
     const { title } = useParams();
-    const[newtitle,setNewtitle]=useState("")
-    const[newtext,setNewtext]=useState("")
+    const [newcomment, setNewcomment] = useState("");
 
     useEffect(() => {
         axios.get(`http://localhost:5000/story/getone/${title}`)
@@ -19,30 +20,32 @@ const Storydetails = () => {
             });
         showcomments();
     }, [title]);
-    const deleting=(id)=>{
-      axios.delete(`http://localhost:5000/story/del/${id}`).then((res)=>{
-        console.log("deleted succesfully");
-        window.location.reload()
-      })
-      .catch((err) => {
-        console.log(err, "errr");
-    });
 
-    }
-    const deletecomment=(id)=>{
-      axios.delete(`http://localhost:5000/comments/del/${id}`).then((res)=>{
-        console.log(" comment deleted succesfully");
-        window.location.reload()
-      })
-      .catch((err) => {
-        console.log(err, "errr");
-    });
+    const deleting = (id) => {
+        axios.delete(`http://localhost:5000/story/del/${id}`)
+            .then((res) => {
+                console.log("deleted successfully");
+                window.location.reload();
+            })
+            .catch((err) => {
+                console.log(err, "errr");
+            });
     }
 
-    const [newcomment, setNewcomment] = useState("");
+    const deletecomment = (id) => {
+        axios.delete(`http://localhost:5000/comments/del/${id}`)
+            .then((res) => {
+                console.log("comment deleted successfully");
+                window.location.reload();
+            })
+            .catch((err) => {
+                console.log(err, "errr");
+            });
+    }
+
     const com = {
         describe: newcomment,
-        users_id: 1,
+        users_id: id,
         stories_id: 1
     };
 
@@ -67,59 +70,86 @@ const Storydetails = () => {
                 console.log(err, "errr");
             });
     };
-    const updating=(id)=>{
-
-      axios.put(`http://localhost:5000/story/put/${id}`).then((res)=>{
-   setNewtitle("")
-   setNewtext("")
-       (res.data)
-        console.log("update")
-       
-      })
-      .catch((err) => {
-        console.log(err, "errr");
-    });
-
-    }
 
     return (
         <div>
-            <div className="titledetails">
-                <h2>
-                    {One.title}
-                    <div className="dropdown">
-                        <div className="dots">...</div>
-                        <div className="dropdown-content">
-                            <a  href="#">Edit</a>
-                            <a onClick={()=>{deleting(One.id)}} href="#">Delete</a>
-                        </div>
-                    </div>
-                </h2>
-            </div>
-            <input  type="text" className="storydetails" value={One.story} />
-            <div className="imgdetails"><img src={One.image} alt="" /></div>
-
-            <form>
-                <div>
-                    <textarea onChange={(e) => { setNewcomment(e.target.value) }} name="comments" id="comments" style={{ fontFamily: 'sans-serif', fontSize: '1.2em' }}></textarea>
-                </div>
-                <button onClick={() => { postcomment() }}>Comment</button>
-            </form>
+            <nav className='nav'>
+                <ul>
+                    <li className='active'>
+                        <Link to="/home" className="home">Home</Link>
+                    </li>
+                    <li className="search-bar">
+                       
+                    </li>
+                    <li className="category-bar">
+            
+                    </li>
+                    <li>
+                        <Link to="/Addstory" className="add-story">Add Story</Link>
+                    </li>
+                    <Link to="/Sign" className="Sign">sign</Link>
+                    /
+                    <Link to="/Log" className="Log">Log</Link>
+                    /
+                    <Link onClick={() => { Cookies.remove('id'); Cookies.remove('token'); }} to='/Log' className="Log">Logout</Link>
+                </ul>
+            </nav>
 
             <div>
-                {commentaire.map((el) => (
-                    <div key={el.id} className="comment">
-                        <input type="text" value={el.describe} />
+                <div className="titledetails">
+                    <h2>
+                        {One.title}
                         <div className="dropdown">
                             <div className="dots">...</div>
                             <div className="dropdown-content">
                                 <a href="#">Edit</a>
-                                <a onClick={()=>{deletecomment(el.id)}} href="#">Delete</a>
+                                <a onClick={() => {deleting(One.id) }} href="#">Delete</a>
                             </div>
                         </div>
+                    </h2>
+                </div>
+                <input type="text" className="storydetails" value={One.story} />
+                <div className="imgdetails"><img src={One.image} alt="" /></div>
+
+                <form>
+                    <div>
+                        <textarea onChange={(e) => { setNewcomment(e.target.value) }} name="comments" className="comment" style={{ fontFamily: 'sans-serif', fontSize: '1.2em' }}></textarea>
                     </div>
-                ))}
+                    <button className="comment-button" onClick={() => { postcomment() }}>Comment</button>
+                </form>
+
+                <div>
+                    {commentaire.map((el) => (
+                        <div key={el.id} className="comment">
+                            <input type="text" value={el.describe} />
+                            <div className="dropdown">
+                                <div className="dots">...</div>
+                                <div className="dropdown-content">
+                                    <a href="#">Edit</a>
+                                    <a onClick={() => { deletecomment(el.id) }} href="#">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
+
+            <footer className="footer">
+                <div className="about-us">
+                    <p>About Us</p>
+                </div>
+                <div className="social-icons">
+                    <a className='fb' href="https://www.facebook.com/profile.php?id=100007577478945">
+                        <FaFacebook />
+                    </a>
+                    <a className='insta' href="https://www.instagram.com/medkhalilbouarrouj/">
+                        <FaInstagramSquare />
+                    </a>
+                </div>
+                <div className="contact-us">
+                    <p>Contact Us</p>
+                </div>
+            </footer>
         </div>
     );
 };

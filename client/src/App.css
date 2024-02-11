@@ -1,97 +1,95 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
+  font-family: Arial, sans-serif;
   margin: 0;
-  padding-bottom: 4rem;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Set the minimum height of the body to 100% of the viewport height */
+  padding: 0;
 }
 
 .nav {
-  background-color: #333;
-  color: white;
+  background-color: #0079d3;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+  color: #fff;
 }
 
 .nav ul {
-  padding: 0;
-  margin: 0;
   list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  gap: 1rem;
   align-items: center;
 }
 
-.nav a {
-  color: inherit;
+.nav ul li {
+  margin-right: 20px;
+}
+
+.nav ul li a {
+  color: #fff;
   text-decoration: none;
+  font-weight: bold;
 }
 
-.nav li.active {
-  background-color: #555;
-}
-
-.nav li.hover {
-  background-color: #777;
-}
-
-.home {
-  font-size: 2rem;
-}
-
-.search-bar {
-  margin-left: auto;
+.nav ul li a:hover {
+  text-decoration: underline;
 }
 
 .search-bar input[type="text"] {
-  border-radius: 20px;
-  padding: 8px 15px;
+  padding: 8px;
+  border-radius: 5px;
   border: 1px solid #ccc;
 }
 
-.search-bar button {
+.search-bar .sbutton {
+  padding: 8px 20px;
+  border-radius: 5px;
   border: none;
-  background: none;
+  background-color: #4a90e2;
+  color: #fff;
   cursor: pointer;
-  padding: 0;
-  margin-left: 5px;
 }
 
 .category-bar select {
+  padding: 8px;
+  border-radius: 5px;
   border: 1px solid #ccc;
-  border-radius: 20px;
-  padding: 8px 15px;
-  background-color: #fff;
   cursor: pointer;
 }
 
+.details {
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.details h2 {
+  margin: 0;
+  color: #0079d3;
+}
+
+.details img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
 .footer {
-  margin-top: auto; /* Push the footer to the bottom */
-  background-color: #333;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-}
-
-.social-icons .fb,
-.social-icons .insta {
-  margin: 0 0.5rem;
+  background-color: #0079d3;
   color: #fff;
-  font-size: 1.5rem;
+  padding: 20px;
+  text-align: center;
 }
+
+.social-icons a {
+  color: #fff;
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+.social-icons a:hover {
+  color: #ccc;
+}
+
 
 .sbutton {
   color: white;
@@ -207,5 +205,183 @@ body {
   border-radius: 5px;
   cursor: pointer;
   outline: none;
+}
+
+/* CSS for Storydetails component */
+
+/* Main container */
+.storydetails-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Title section */
+.titledetails h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+/* Dropdown */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dots {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.5em;
+  color: #ccc; /* Dimmed color for dots */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff; /* White background */
+  border: 1px solid #ccc; /* Gray border */
+  min-width: 120px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #000; /* Black text */
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0; /* Light gray on hover */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Story details */
+.storydetails {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 5px;
+}
+
+/* Image details */
+.imgdetails img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+/* Comments section */
+.comments-container {
+  margin-top: 20px;
+}
+
+.comment {
+  margin-bottom: 20px;
+}
+
+.comment input[type="text"] {
+  width: calc(100% - 40px);
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 5px;
+}
+
+.comment .dropdown {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+}
+
+.comment .dots {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.5em;
+  color: #ccc; /* Dimmed color for dots */
+}
+
+.comment .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff; /* White background */
+  border: 1px solid #ccc; /* Gray border */
+  min-width: 120px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  z-index: 1;
+}
+
+.comment .dropdown-content a {
+  color: #000; /* Black text */
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.comment .dropdown-content a:hover {
+  background-color: #f0f0f0; /* Light gray on hover */
+}
+
+.comment .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Comment button */
+.comment-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #0079d3; /* Reddit blue */
+  color: #fff; /* White text */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.comment-button:hover {
+  background-color: #005ea8; /* Darker blue on hover */
+}
+.addstory-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+.addstory-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.addstory-container input[type="text"],
+.addstory-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.addstory-container .okk {
+  cursor: pointer;
+  background-color: #0079d3;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.addstory-container .okk:hover {
+  background-color: #0056b3;
 }
 
