@@ -1,97 +1,98 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
+  font-family: Arial, sans-serif;
   margin: 0;
-  padding-bottom: 4rem;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Set the minimum height of the body to 100% of the viewport height */
+  min-height: 100vh;
 }
 
 .nav {
-  background-color: #333;
-  color: white;
+  background-color: #0079d3;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+  color: #fff;
 }
 
 .nav ul {
-  padding: 0;
-  margin: 0;
   list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  gap: 1rem;
   align-items: center;
 }
 
-.nav a {
-  color: inherit;
+.nav ul li {
+  margin-right: 20px;
+}
+
+.nav ul li a {
+  color: #fff;
   text-decoration: none;
+  font-weight: bold;
 }
 
-.nav li.active {
-  background-color: #555;
-}
-
-.nav li.hover {
-  background-color: #777;
-}
-
-.home {
-  font-size: 2rem;
-}
-
-.search-bar {
-  margin-left: auto;
+.nav ul li a:hover {
+  text-decoration: underline;
 }
 
 .search-bar input[type="text"] {
-  border-radius: 20px;
-  padding: 8px 15px;
+  padding: 8px;
+  border-radius: 5px;
   border: 1px solid #ccc;
 }
 
-.search-bar button {
+.search-bar .sbutton {
+  padding: 8px 20px;
+  border-radius: 5px;
   border: none;
-  background: none;
+  background-color: #4a90e2;
+  color: #fff;
   cursor: pointer;
-  padding: 0;
-  margin-left: 5px;
 }
 
 .category-bar select {
+  padding: 8px;
+  border-radius: 5px;
   border: 1px solid #ccc;
-  border-radius: 20px;
-  padding: 8px 15px;
-  background-color: #fff;
   cursor: pointer;
 }
 
+.details {
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.details h2 {
+  margin: 0;
+  color: #0079d3;
+}
+
+.details img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
 .footer {
-  margin-top: auto; /* Push the footer to the bottom */
-  background-color: #333;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-}
-
-.social-icons .fb,
-.social-icons .insta {
-  margin: 0 0.5rem;
+  background-color: #0079d3;
   color: #fff;
-  font-size: 1.5rem;
+  padding: 20px;
+  text-align: center;
 }
+
+.social-icons a {
+  color: #fff;
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+.social-icons a:hover {
+  color: #ccc;
+}
+
 
 .sbutton {
   color: white;
@@ -181,9 +182,16 @@ body {
   max-width: 100%;
 }
 
-
-
-.conn{
-  background-color: rgb(0, 255, 89);
-
+.Butt {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
 }
+
