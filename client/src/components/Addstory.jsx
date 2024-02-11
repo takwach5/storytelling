@@ -13,7 +13,7 @@ const Addstory = ({ id }) => {
     title: title,
     story: story,
     image: image,
-    users_id: 1,
+    users_id: 2,
     category_id: 2,
   };
 
