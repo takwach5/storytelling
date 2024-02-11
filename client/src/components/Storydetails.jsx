@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import axios from "axios";
+import Nav from "./Nav.jsx";
+
+
 
 const Storydetails = () => {
     const [commentaire, setCommentaire] = useState([]);
@@ -84,6 +87,7 @@ const Storydetails = () => {
 
     return (
         <div>
+            <Nav/>
             <div className="titledetails">
                 <h2>
                     {One.title}

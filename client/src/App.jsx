@@ -8,6 +8,7 @@ import Log from "./components/Log.jsx";
 import "./App.css";
 import Category from "./components/Category.jsx";
 import Cookies from "js-cookie";
+import Nav from "./components/Nav.jsx";
 
 
 
@@ -33,6 +34,8 @@ console.log("this is id",id)
           <Route path="/home" element={<Home />} />
           <Route path="/Sign" element={<Sign />} />
           <Route path="/Log" element={<Log />} />
+          <Route path="/Nav" element={<Nav />} />
+
 
         </Routes>
       </BrowserRouter>

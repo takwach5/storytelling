@@ -1,48 +1,43 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import './sign.css'
 
 function Sign() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const sign = () => {
     axios
       .post(`http://localhost:5000/auth/Register`, { name: name, email: email, password: password })
       .then(() => {
         console.log('welcome new user');
+        navigate('/Log');
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  const imageee = {
-    backgroundImage: 'url("https://img.freepik.com/psd-gratuit/salle-interieure-etageres-decoration_176382-526.jpg?w=900&t=st=1707429637~exp=1707430237~hmac=91297782f0044dc1070d553c6e3b127449ae8036156afd4dc06ca5b986adf196")',
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    height: "100vh",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "20px",
-  };
-
   return (
-    <div className='signn' >
-      <h1 className='titleee'>Sign in</h1>
+    <div className='signn'>
+      <h1 className='titleee'>Sign up</h1>
+
+      {/* Name Input */}
       <div className='input-container'>
+        
         <input
           type='text'
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
+          onChange={(e) => {setName(e.target.value)}}
           required
         />
-        <label className='label'>Enter Name</label>
+        <label className='label'> name</label>
         <div className='underline'></div>
       </div>
+
+      {/* Email Input */}
       <div className='input-container'>
         <input
           type='text'
@@ -51,9 +46,11 @@ function Sign() {
           }}
           required
         />
-        <label className='label'>Enter Email</label>
+        <label className='label'> email</label>
         <div className='underline'></div>
       </div>
+
+      {/* Password Input */}
       <div className='input-container'>
         <input
           type='password'
@@ -62,11 +59,12 @@ function Sign() {
           }}
           required
         />
-        <label className='label'>Enter Password</label>
+        <label className='label'> password</label>
         <div className='underline'></div>
       </div>
+
       <button className='Butt' onClick={() => sign()}>
-        Sign in
+        Sign up
       </button>
     </div>
   );

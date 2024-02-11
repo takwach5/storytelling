@@ -32,10 +32,10 @@ const Addstory=({id})=>{
     }
 
     return(
-        <div className="connn">
-          <div className="add" > Title: <input onChange={(e) => {setTitle(e.target.value)}} type="text"/> </div>
-          <div className="add" > Story: <textarea onChange={(e) => {setStory(e.target.value) }}/> </div>
-          <div className="add" > Image:<input onChange={(e) => {setImage(e.target.value)}} placeholder="optional"/> </div>
+        <div className="signn">
+          <div className="input-container" > Title: <input onChange={(e) => {setTitle(e.target.value)}} type="text"/> </div>
+          <div className="input-container" > Story: <textarea onChange={(e) => {setStory(e.target.value) }}/> </div>
+          <div className="input-container" > Image:<input onChange={(e) => {setImage(e.target.value)}} placeholder="optional"/> </div>
           <div className="okk" onClick={add}> Post Now </div>
         </div>
       );

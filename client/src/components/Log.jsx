@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import './sign.css'
+
+
 
 function Log() {
   const [email, setEmail] = useState('');
@@ -12,9 +15,10 @@ function Log() {
     axios
       .post(`http://localhost:5000/auth/login`, { email: email, password: password })
       .then((result) => {
+        console.log("hedhi data",result.data);
         Cookies.set('token', result.data.token);
         Cookies.set('id', result.data.user.id);
-        navigate('/');
+        navigate('/home');
       })
       .catch((err) => {
         console.log(err);
