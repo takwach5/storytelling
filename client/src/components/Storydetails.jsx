@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import axios from "axios";
 import { FaFacebook, FaInstagramSquare } from "react-icons/fa";
 import Cookies from "js-cookie";
+import Nav from "./Nav.jsx";
+
 
 const Storydetails = ({ id }) => {
     const [commentaire, setCommentaire] = useState([]);
@@ -73,6 +75,7 @@ const Storydetails = ({ id }) => {
 
     return (
         <div>
+
             <nav className='nav'>
                 <ul>
                     <li className='active'>
