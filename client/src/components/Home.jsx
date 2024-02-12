@@ -124,7 +124,6 @@ setSelect(filtered)
             
             <img src={e.image} alt="Story Image" />
             <p>Likes: {e.likes}</p>
-           <button>like</button>
           </div>
         )):select.map((e) => (
           <div key={e.id}>
@@ -133,14 +132,14 @@ setSelect(filtered)
             
             <img src={e.image} alt="Story Image" />
             <p>Likes: {e.likes}</p>
-           <button>like</button>
+        
           </div>
         )):filter.length?filter.map((e) => (
           <div key={e.id}>
             <div className="details" onClick={() => getone(e.title)}><h2>{e.title}</h2></div>
             <img src={e.image} alt="Story Image" />
             <p>Likes: {e.likes}</p>
-           <button>like</button>
+          
           </div>
         )):data.map((e) => (
           <div className='conn' key={e.id}>
@@ -149,7 +148,6 @@ setSelect(filtered)
             
             <img src={e.image} alt="Story Image" />
             <p>Likes: {e.likes}</p>
-           <button>like</button>
           </div>
         ))}
        
